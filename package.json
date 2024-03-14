@@ -47,7 +47,8 @@
   "dependencies": {
     "react-native-device-info": "10.3.0",
     "semver": "7.2.1",
-    "underscore": "1.12.1"
+    "underscore": "1.12.1",
+    "apisauce": "^2.1.1"
   },
   "resolutions": {
     "react-native-device-info": "10.3.0"
