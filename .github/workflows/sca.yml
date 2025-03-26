@@ -1,0 +1,13 @@
+name: Run Dependency Scan
+on:
+  pull_request:
+  push:
+    branches:
+      - main  
+      - master
+  workflow_dispatch:
+
+jobs:
+  call-dependency-scan:
+    uses: zeptonow/workflow-hub/.github/workflows/sca.yaml@main
+    secrets: inherit
