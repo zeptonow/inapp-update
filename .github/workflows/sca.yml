@@ -1,10 +1,21 @@
 name: Run Dependency Scan
 on:
   pull_request:
+     branches:
+      - main  
+      - master
+      - dev
+      - release
+      - develop
+      - mainline
   push:
     branches:
       - main  
       - master
+      - dev
+      - release
+      - develop
+      - mainline
   workflow_dispatch:
 
 jobs:
