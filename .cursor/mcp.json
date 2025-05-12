@@ -1,0 +1,8 @@
+{
+    "mcpServers": {
+        "zepto-mcp": {
+            "url": "http://dev-mcp.zeptonow.dev/sse",
+            "description": "Zepto Developer MCP"
+        }
+    }
+}
