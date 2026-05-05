@@ -1,23 +1,31 @@
 import { Alert, Linking } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import apisauce from 'apisauce';
 
-const createAPI = (baseURL = 'https://itunes.apple.com/') => {
-  const api = apisauce.create({
-    baseURL,
-    headers: {
-      'Cache-Control': 'no-cache',
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    timeout: 10000,
-  });
-
-  return {
-    getLatest: (bundleId, country = undefined) =>
-      api.get('lookup', { bundleId, country }),
-  };
-};
+const createAPI = (baseURL = 'https://itunes.apple.com/') => ({
+  getLatest: (bundleId, country) => {
+    const url = new URL('lookup', baseURL);
+    url.searchParams.append('bundleId', String(bundleId));
+    if (country != null) {
+      url.searchParams.append('country', String(country));
+    }
+    const abortController = new AbortController();
+    const abortTimeoutId = setTimeout(() => abortController.abort(), 10000);
+    return fetch(String(url), {
+      signal: abortController.signal,
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    })
+      .finally(() => clearTimeout(abortTimeoutId))
+      .then(async (fetchResponse) => ({
+        ok: fetchResponse.ok,
+        data: await fetchResponse.json().catch(() => null),
+      }))
+      .catch(() => ({ ok: false, data: null }));
+  },
+});
 
 const defaultCheckOptions = {
   bundleId: DeviceInfo.getBundleId(),
