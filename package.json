@@ -1,6 +1,6 @@
 {
   "name": "sp-react-native-in-app-updates",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "description": "Handles Android native updates in app by using play-core",
   "main": "lib/commonjs/index",
   "types": "src/index.d.ts",
@@ -47,8 +47,7 @@
   "dependencies": {
     "react-native-device-info": "10.3.0",
     "semver": "7.2.1",
-    "underscore": "1.12.1",
-    "apisauce": "^2.1.1"
+    "underscore": "1.12.1"
   },
   "resolutions": {
     "react-native-device-info": "10.3.0"
