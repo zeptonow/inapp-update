@@ -50,7 +50,8 @@
     "underscore": "1.12.1"
   },
   "resolutions": {
-    "react-native-device-info": "10.3.0"
+    "react-native-device-info": "10.3.0",
+    "@types/node": "24.10.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
