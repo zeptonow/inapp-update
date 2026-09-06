@@ -51,8 +51,7 @@
   },
   "resolutions": {
     "react-native-device-info": "10.3.0",
-    "@types/node": "24.10.2",
-    "browserslist": ">=4.28.7"
+    "@types/node": "24.10.2"
   },
   "overrides": {
     "browserslist": ">=4.28.7"
