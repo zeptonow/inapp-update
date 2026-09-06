@@ -39,6 +39,7 @@
     "node": ">=18"
   },
   "overrides": {
-    "browserslist": ">=4.28.7"
+    "browserslist": ">=4.28.7",
+    "image-size": "npm:image-size-next@2.1.1"
   }
 }
