@@ -44,6 +44,7 @@
     "js-yaml": "4.3.1",
     "brace-expansion": "2.1.4",
     "ws": "7.5.11",
-    "decode-uri-component": "0.5.0"
+    "decode-uri-component": "0.5.0",
+    "joi": "17.13.4"
   }
 }
