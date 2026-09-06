@@ -57,7 +57,8 @@
     "browserslist": ">=4.28.7",
     "image-size": "npm:image-size-next@2.1.1",
     "js-yaml": "4.3.1",
-    "brace-expansion": "2.1.4"
+    "brace-expansion": "2.1.4",
+    "ws": "7.5.11"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
