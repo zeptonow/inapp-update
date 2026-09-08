@@ -16,7 +16,7 @@
     "sp-react-native-in-app-updates": "latest"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
+    "@babel/core": "7.29.6",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
     "@react-native/babel-preset": "0.73.19",
@@ -47,7 +47,7 @@
     "decode-uri-component": "0.5.0",
     "joi": "17.13.4",
     "semver": "7.5.2",
-    "@babel/traverse": "7.23.2",
+    "@babel/core": "7.29.6",
     "shell-quote": "1.10.0",
     "fast-xml-parser": "5.7.0",
     "underscore": "1.13.8"
