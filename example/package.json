@@ -49,6 +49,7 @@
     "semver": "7.5.2",
     "@babel/traverse": "7.23.2",
     "shell-quote": "1.10.0",
-    "fast-xml-parser": "5.7.0"
+    "fast-xml-parser": "5.7.0",
+    "underscore": "1.13.8"
   }
 }
