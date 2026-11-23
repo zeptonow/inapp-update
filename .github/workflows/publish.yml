@@ -1,0 +1,55 @@
+name: Publish to GitHub Packages
+
+# Publishes @zeptonow/sp-react-native-in-app-updates, pre-built, so apps install
+# a normal versioned package instead of building this repo from git on every install.
+# Release: bump "version" in package.json, merge, then push a matching tag (v<version>).
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@zeptonow'
+
+      - name: Check tag matches package version
+        if: github.ref_type == 'tag'
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [ "${GITHUB_REF_NAME#v}" != "$version" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Build
+        run: npx bob build
+
+      - name: Check package contents
+        run: |
+          npm pack --dry-run --ignore-scripts 2>&1 | tee pack.txt
+          for f in lib/commonjs/index.js src/index.js react-native-siren/index.js android/build.gradle; do
+            grep -q "$f" pack.txt || { echo "Missing $f from package"; exit 1; }
+          done
+
+      - name: Publish
+        run: npm publish --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

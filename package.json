@@ -1,15 +1,17 @@
 {
-  "name": "sp-react-native-in-app-updates",
-  "version": "1.5.1",
+  "name": "@zeptonow/sp-react-native-in-app-updates",
+  "version": "1.5.1-zepto.1",
   "description": "Handles Android native updates in app by using play-core",
   "main": "lib/commonjs/index",
   "types": "src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "files": [
+    "index.js",
     "src",
     "lib",
     "android",
+    "react-native-siren",
     "cpp",
     "!lib/typescript/example",
     "!android/build",
@@ -34,7 +36,10 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/SudoPlz/sp-react-native-in-app-updates",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeptonow/inapp-update.git"
+  },
   "author": "Ioannis Kokkinidis <sudoplz@gmail.com> (https://github.com/SudoPlz)",
   "license": "MIT",
   "bugs": {
@@ -42,7 +47,7 @@
   },
   "homepage": "https://github.com/SudoPlz/sp-react-native-in-app-updates#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "react-native-device-info": "10.3.0",
